@@ -1,2 +1,5 @@
-package com.calculator.vbaisa.service;public class CalcService {
+package com.calculator.vbaisa.service;
+
+public interface CalcService {
+    String CalculateValue(String exp);
 }
