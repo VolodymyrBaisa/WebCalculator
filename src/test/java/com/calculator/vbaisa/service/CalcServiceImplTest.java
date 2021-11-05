@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@SpringBootTest(classes = CalcServiceImpl.class)
 public class CalcServiceImplTest {
     private static final String CALCULATION_ERROR = "Calculation error";
 
