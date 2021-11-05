@@ -47,7 +47,8 @@ public class CalcControllerTest {
         when(calcService.CalculateValue(anyString())).thenReturn("20");
 
         mvc.perform(MockMvcRequestBuilders
-                .get("/v1/calculate/{exp}", 20)
+                .post("/v1/calculate")
+                .content("20")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -56,7 +57,7 @@ public class CalcControllerTest {
     @Test
     public void testInvalidRequest() throws Exception {
       mvc.perform(MockMvcRequestBuilders
-                .get("/v1/calculate1/{exp}", 20)
+                .post("/v1/calculate1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
