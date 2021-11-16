@@ -45,7 +45,16 @@ public class ApplicationErrorController implements ErrorController {
                         .setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
                 return error.build().toString();
             }
+
+            error.setPath(request.getRequestURI())
+                    .setTimeStamp(LocalDateTime.now())
+                    .setMessage("Server error " + statusCode);
+            return error.build().toString();
         }
-        return "error";
+
+        error.setPath(request.getRequestURI())
+                .setTimeStamp(LocalDateTime.now())
+                .setMessage("error");
+        return error.build().toString();
     }
 }
