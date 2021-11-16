@@ -14,6 +14,6 @@ public class CalcController {
 
     @PostMapping("calculate")
     public @ResponseBody String calculateResult(@RequestBody String exp) {
-        return calcService.CalculateValue(exp);
+            return calcService.CalculateValue(exp);
     }
 }
